@@ -106,11 +106,11 @@ class ElementFinder(object):
     # Private
 
     _key_attrs = {
-        None: ['@id', '@name'],
-        'a': ['@id', '@name', '@href', 'normalize-space(descendant-or-self::text())'],
-        'img': ['@id', '@name', '@src', '@alt'],
-        'input': ['@id', '@name', '@value', '@src'],
-        'button': ['@id', '@name', '@value', 'normalize-space(descendant-or-self::text())']
+        None: ['@id', '@name', '@data-qa-id'],
+        'a': ['@id', '@name', '@data-qa-id', '@href', 'normalize-space(descendant-or-self::text())'],
+        'img': ['@id', '@name', '@data-qa-id', '@src', '@alt'],
+        'input': ['@id', '@name', '@value', '@src', '@data-qa-id'],
+        'button': ['@id', '@name', '@value', '@data-qa-id', 'normalize-space(descendant-or-self::text())']
     }
 
     def _get_tag_and_constraints(self, tag):

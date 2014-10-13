@@ -500,6 +500,8 @@ class _BrowserManagementKeywords(KeywordGroup):
         
         if not profile_dir: profile_dir = FIREFOX_PROFILE_DIR
         profile = webdriver.FirefoxProfile(profile_dir)
+        #MU: workaround for disabling native events
+        profile.native_events_enabled = False
         if remote:
             browser = self._create_remote_web_driver(webdriver.DesiredCapabilities.FIREFOX  , 
                         remote , desired_capabilites , profile)

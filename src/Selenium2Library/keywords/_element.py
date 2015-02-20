@@ -268,6 +268,14 @@ class _ElementKeywords(KeywordGroup):
         """
         return self._get_text(locator)
 
+    def clear_element_text(self, locator):
+        """Clears the text value of text entry element identified by `locator`.
+
+        See `introduction` for details about locating elements.
+        """
+        element = self._element_find(locator, True, True)
+        element.clear()
+
     def get_vertical_position(self, locator):
         """Returns vertical position of element identified by `locator`.
 
@@ -436,11 +444,11 @@ return !element.dispatchEvent(evt);
         """Simulates user pressing key on element identified by `locator`.
 
         `key` is either a single character, or a numerical ASCII code of the key
-        lead by '\\'.
+        lead by '\\'. In test data, '\\' must be escaped, so use '\\\\'.
 
         Examples:
         | Press Key | text_field   | q |
-        | Press Key | login_button | \\13 | # ASCII code for enter key |
+        | Press Key | login_button | \\\\13 | # ASCII code for enter key |
         """
         if key.startswith('\\') and len(key) > 1:
             key = self._map_ascii_key_code_to_key(int(key[1:]))
